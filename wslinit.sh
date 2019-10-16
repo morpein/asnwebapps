@@ -63,8 +63,8 @@ cd; ln -s /c/Users/$(whoami)/.kube
 
 #Fix WSL mount point for host units (e.g. /c instead of /mnt/c)
 sudo bash -c 'cat > /etc/wsl.conf << EOF
-[automount] 
-root = / 
+[automount]
+root = /
 options = "metadata"
 EOF'
 
