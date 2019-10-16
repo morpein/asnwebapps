@@ -19,3 +19,6 @@ $ docker-compose up -d
 $ docker-compose ps
 ````
 
+## Bonus: access docker for windows with kubernetes from Ubuntu WSL
+
+Copy ``wslinit.sh`` to your windows home folder and launch it from WSL to use ``docker`` and ``kubectl`` clients
