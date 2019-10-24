@@ -15,38 +15,16 @@
 		header("Location: " . $_SERVER['REQUEST_URI']);
 		exit();
 	}
+
 	$query="SELECT * FROM notes";
+
 	if ($_GET['id']) {
-		$result = $db->query($query." WHERE id=  ${_GET['id']}");
+		$vmodel['note']= $db->query($query." WHERE id=  ${_GET['id']}")
+							->fetch();
+		include('views/note.php');
 	} else {
-		$result = $db->query($query);
+		$vmodel['notes'] = $db->query($query);
+		include("views/notes.php");
 	}
+
 ?>
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>My Notes</h1>
-        <ul>
-            <?php
-            foreach ($result as $row) {
-                echo "<li>";
-                echo "Id: ";
-                echo "<a href='index.php?id=${row['id']}'>${row['id']}</a>";
-                echo " Title: " . $row['title'];
-                echo " Message: " . $row['text'];
-                echo " Hidden: " . $row['hidden'];
-                echo "</li>";
-            }
-            ?>
-        </ul>
-        <form method="POST" >
-            <input name="title" placename="Title"/>
-            <input name="text" placename="Text"/> 
-            <input type="CHECKBOX" name="hidden" value="1">
-            <input type="submit" name="Enviar"/>
-		</form>
-<hr>
-<em>Server: <?=$_SERVER['SERVER_ADDR'] ?> </em>
-    </body>
-</html>

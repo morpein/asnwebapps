@@ -9,14 +9,21 @@
 	$db->setAttribute(PDO::ATTR_ERRMODE, 
 		PDO::ERRMODE_EXCEPTION);
 
-	$query="CREATE TABLE IF NOT EXISTS notes (
+	$query="CREATE TABLE notes (
 		id INTEGER PRIMARY KEY AUTOINCREMENT, 
 		title TEXT, 
 		text TEXT, 
 		hidden INTEGER)";
-	$db->exec($query);
+	
+	try {
+		$db->exec($query);
+	} catch (PDOException $e) {
+		//Table already created
+		header("Location: .");
+		exit();
+	}
 
-	$query="INSERT INTO notes ('title','text','hidden') VALUES
+	$query="INSERT INTO notes (title,text,hidden) VALUES
 		('first','Hello world',0),
 		('second','Hidden',1);";
 	$db->exec($query);
