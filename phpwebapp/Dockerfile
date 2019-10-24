@@ -1,6 +1,8 @@
 FROM php:7.2-apache
 MAINTAINER jrbalsas@ujaen.es
 
+RUN docker-php-ext-install pdo_mysql
+
 WORKDIR /var/www/html
 
 COPY html/ ./
