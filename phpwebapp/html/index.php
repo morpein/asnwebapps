@@ -9,7 +9,7 @@
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$query = "INSERT INTO notes ('title','text','hidden') VALUES (" .
+		$query = "INSERT INTO notes (title,text,hidden) VALUES (" .
 				"'${_POST['title']}','${_POST['text']}',0 );";
 		$db->exec($query);
 		header("Location: " . $_SERVER['REQUEST_URI']);
