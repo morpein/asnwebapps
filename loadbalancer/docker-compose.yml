@@ -1,0 +1,39 @@
+version: '2.4'
+services:
+  haproxy:
+    image: asn/haproxy 
+    build: haproxy/
+    ports:
+      - "80:80"
+    volumes:
+      # HAProxy static config file
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+#  nginx:
+#    image: asn/nginx
+#    build: nginx/
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - wwwserver #nginx needs all servers available
+#    volumes:
+#      # NGinx static config file
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+#  traefik:
+#    image: asn/traefikv1
+#    build: traefikv1/
+#    ports:
+#      - "80:80"
+#      - "8080:8080" # Web GUI
+#    volumes:
+#      # Traefik static config file
+#      - ./traefikv1/traefik.toml:/etc/traefik/traefik.toml
+  wwwserver:
+    image: containous/whoami
+    ports:
+      # Random external port for HTTP direct access 
+      - "80"
+    # number of replicas
+    scale: 2
+    # limit memory for testing
+    mem_limit: 50m
+    mem_reservation: 25m

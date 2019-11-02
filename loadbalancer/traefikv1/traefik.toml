@@ -1,0 +1,26 @@
+#debug = true
+
+# Enable API and dashboard (:8080)
+[api]
+# Enable logs
+[traefikLog]
+[accessLog]
+
+# Configure timeouts
+[respondingTimeouts]
+
+[file]
+#Manual frontend/backend  configuration
+
+[frontends]
+  [frontends.frontend1]
+    entryPoints = ["http"]
+    backend = "wwwservers"
+
+[backends]
+  [backends.wwwservers]
+	  # Define www servers
+	  [backends.wwwservers.servers.server1]
+		url = "http://loadbalancer_wwwserver_1:80" 
+	  [backends.wwwservers.servers.server2]
+		url = "http://loadbalancer_wwwserver_2:80"
