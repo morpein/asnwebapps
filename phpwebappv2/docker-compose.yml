@@ -1,0 +1,23 @@
+version: '2.4'
+services:
+  wwwserver:
+    build: .
+    image: asn/phpwebapp
+    ports:
+      # Random external port for HTTP direct access 
+      - "80:80"
+    mem_limit: 50m
+    mem_reservation: 25m
+    volumes:
+      - ./html:/var/www/html
+    depends_on:
+      - mariadb 
+  mariadb:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=notesdb
+      - MYSQL_USER=usuario
+      - MYSQL_PASSWORD=secreto
+    ports:
+      - 3306:3306
