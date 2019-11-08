@@ -2,7 +2,7 @@
 
 ## Requeriments
 
-Docker, jdk, maven, make
+Docker, make. *Optional:* jdk, mvn for local development
 
 ## Usage
 You can control the local container with ```docker-compose``` commands, i.e. up, stop, start, down, etc. however, if available, the ```make``` utility can be used to simplify usual operations.
