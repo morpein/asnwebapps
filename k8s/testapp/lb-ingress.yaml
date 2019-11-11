@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: lb-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  #Default backend service
+# backend:
+#   serviceName: testapp 
+#   servicePort: 80
+  # Backend services
+  rules:
+# - host: localhost 
+    - http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: testapp 
+            servicePort: 80

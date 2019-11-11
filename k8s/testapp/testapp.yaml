@@ -38,3 +38,4 @@ spec:
   selector:
     run: testapp 
   type: NodePort
+# type: LoadBalancer

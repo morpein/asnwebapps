@@ -1,4 +1,4 @@
-# Sample Kubernetes deployments
+# Sample Kubernetes deployments and resources
 
 ## Requirements
 
@@ -23,4 +23,13 @@ Use `delete` command with the same resource files/folders
 
 ```bash
 $ kubectl delete -f testapp/
+```
+
+## Install local ingress controller
+`ingress-controller`folder contains diferent ingress controlers for using ingress resources in local clusters, e.g. in Docker Kubernetes System, DKS.
+
+Example, installing nginx ingress-controller
+
+```bash
+$ kubectl apply -f ingress-controller/nginx/
 ```

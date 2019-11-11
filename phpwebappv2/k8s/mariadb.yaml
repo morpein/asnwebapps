@@ -1,0 +1,49 @@
+# APP DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: db 
+  name: mariadb 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db 
+  template:
+    metadata:
+      labels:
+        app: db 
+    spec:
+      containers:
+      - image: mariadb:latest
+        imagePullPolicy: IfNotPresent
+        name: mariadb 
+        ports:
+        - containerPort: 3306 
+          protocol: TCP
+        env: #Use configmap or secrets for values!
+          - name: MYSQL_ROOT_PASSWORD
+            value: secret
+          - name: MYSQL_DATABASE
+            value: notesdb
+          - name: MYSQL_USER
+            value: usuario
+          - name: MYSQL_PASSWORD
+            value: secreto
+---
+# APP SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: db 
+  name: mariadb 
+spec:
+  ports:
+  - port: 3306 
+    protocol: TCP
+    targetPort: 3306 
+  selector:
+    app: db 
+  type: ClusterIP 
