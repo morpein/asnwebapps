@@ -26,7 +26,7 @@ echo -----------------------
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
-    curl \
+    curl unzip \
     gnupg-agent \
     software-properties-common
 
