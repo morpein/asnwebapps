@@ -1,0 +1,47 @@
+# APP DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: testapp 
+  name: testapp 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: testapp 
+  template:
+    metadata:
+      labels:
+        run: testapp 
+    spec:
+      containers:
+      - image: containous/whoami 
+        imagePullPolicy: IfNotPresent
+        name: testapp
+        ports:
+        - containerPort: 80 
+          protocol: TCP
+        # Adjust resources for deploying on GKE g1-instance
+        resources:
+          limits:
+            cpu: 50m
+          requests:
+            cpu: 20m
+---
+# APP SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: testapp 
+  name: testapp 
+spec:
+  ports:
+  - port: 80 
+    protocol: TCP
+    targetPort: 80 
+  selector:
+    run: testapp 
+  type: NodePort
+# type: LoadBalancer
