@@ -31,6 +31,8 @@ spec:
             value: usuario
           - name: MYSQL_PASSWORD
             value: secreto
+          - name: MYSQL_INITDB_SKIP_TZINFO
+            value: "1"
 ---
 # SAMPLE MARIADB SERVICE
 apiVersion: v1
