@@ -15,7 +15,7 @@ spec:
 # - host: localhost 
     - http:
         paths:
-        - path: /*
+        - path: /
           backend:
             serviceName: testapp 
             servicePort: 80
