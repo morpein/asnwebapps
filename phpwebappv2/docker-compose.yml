@@ -19,5 +19,8 @@ services:
       - MYSQL_DATABASE=notesdb
       - MYSQL_USER=usuario
       - MYSQL_PASSWORD=secreto
+      # Descomentar si hay problemas para incializar la BD de pruebas
+      # https://github.com/docker-library/mariadb/issues/160#issuecomment-528393445
+#     - MYSQL_INIT_SKIP_TZINFO=1
     ports:
       - 3306:3306
