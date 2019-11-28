@@ -1,3 +1,4 @@
+# IMPORTANT: in GKE, ingress resouce must be created AFTER service routed
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
