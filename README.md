@@ -19,11 +19,5 @@ $ docker-compose up -d
 $ docker-compose ps
 ````
 
-## Bonus: access docker for windows with kubernetes from Ubuntu WSL
-
-Copy ``wslinit.sh`` to your windows home folder and launch it from WSL to use ``docker`` and ``kubectl`` clients, e.g. 
-
-````
-$ cd /mnt/c/Users/youruser
-$ source ./wslinit.sh
-````
+## Access docker for windows with kubernetes from Ubuntu WSL 1
+[wslinit.sh](WSL1) script allows to use  ``docker`` and ``kubectl`` from older Windows 10 WSL 1 installations
