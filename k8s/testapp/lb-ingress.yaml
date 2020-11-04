@@ -1,4 +1,4 @@
-# IMPORTANT: in GKE, ingress resouce must be created AFTER service routed 
+# IMPORTANT: in GKE, ingress resouce must be created AFTER service is launched
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:

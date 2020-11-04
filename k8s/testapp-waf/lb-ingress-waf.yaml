@@ -16,8 +16,8 @@ spec:
 # - host: localhost 
     - http:
         paths:
-#       - path: /*    #Uncomment for GKE ingress special syntax
-        - path: /     #Comment when deploying in GKE
+#        - path: /*    #IMPORTANT: Uncomment for GKE ingress special syntax
+        - path: /     #IMPORTANT: Comment when deploying in GKE
           backend:
             serviceName: waf 
             servicePort: 80
