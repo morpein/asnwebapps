@@ -13,6 +13,7 @@ spec:
 #   servicePort: 80
   # Backend services
   rules:
+
 # - host: localhost 
     - http:
         paths:
