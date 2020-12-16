@@ -1,0 +1,10 @@
+version: "2"
+services:
+     wwwserver:
+          build: .
+          image: asn/sbwebapp
+          environment:
+               PORT: 8080
+          ports:
+               - "8080:8080"
+          

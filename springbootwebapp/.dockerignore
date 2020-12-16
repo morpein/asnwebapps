@@ -1,0 +1,7 @@
+Makefile
+docker-compose.yml
+README.md
+
+.git
+target
+!target/*war
