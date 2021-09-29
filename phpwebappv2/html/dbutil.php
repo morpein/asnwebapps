@@ -25,9 +25,9 @@
 			// table not found
 
 			$query="CREATE TABLE notes (
-						id INTEGER PRIMARY KEY AUTOINCREMENT, 
-						title TEXT, 
-						text TEXT, 
+						id INTEGER PRIMARY KEY AUTO_INCREMENT,
+						title VARCHAR(30),
+						text VARCHAR(255),
 						hidden INTEGER)";
 			try {
 				$db->exec($query);

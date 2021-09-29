@@ -1,17 +1,11 @@
 <?php
 
-#	$dsn="sqlite:/tmp/notes.sqlite";
-#	$dbuser="usuario";
-#	$dbpass="secreto";
-
 	$dsn="mysql:host=mariadb;dbname=notesdb";
-	$dbuser="usuario";
-	$dbpass="secreto";
+	$dbuser = "usuario";
+	$dbpass = "secreto";
 
-	$db = new PDO($dsn, $dbuser, $dbpass);
-
-	// Set errormode to exceptions
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	require "./dbutil.php";
+	$db = openDBConnection($dsn,$dbuser,$dbpass);
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$query = "INSERT INTO notes (title,text,hidden) VALUES (" .

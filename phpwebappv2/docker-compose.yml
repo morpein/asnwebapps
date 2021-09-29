@@ -1,11 +1,11 @@
-version: '2.4'
+version: '2'
 services:
   wwwserver:
     build: .
     image: asn/phpwebapp
     ports:
-      # Random external port for HTTP direct access 
-      - "80:80"
+      # Fixed external port for HTTP direct access 
+      - "8080:80"
     mem_limit: 50m
     mem_reservation: 25m
     volumes:
