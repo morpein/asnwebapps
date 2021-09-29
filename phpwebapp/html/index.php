@@ -1,12 +1,15 @@
 <?php
-	$dsn = "sqlite:/tmp/notes.sqlite";
+	$dbfile="/tmp/notes.sqlite";
+	$dsn = "sqlite:".$dbfile;
 	$dbuser = "usuario";
 	$dbpass = "secreto";
 
-	$db = new PDO($dsn, $dbuser, $dbpass);
+	require "./dbutil.php";
+	checkDatabase($dbfile,$dbuser,$dbpass);
 
-	// Set errormode to exceptions
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// Get db connection and set errormode to exceptions
+	$db = new PDO($dsn, $dbuser, $dbpass
+		,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$query = "INSERT INTO notes (title,text,hidden) VALUES (" .

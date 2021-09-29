@@ -3,14 +3,14 @@
 	<body>
 		<h1>My Notes</h1>
 		<ul>
-			<? foreach ($vmodel['notes'] as $n): ?>
+			<?php foreach ($vmodel['notes'] as $n): ?>
 				<li>
 				Id: <a href='index.php?id=<?=$n['id']?>'><?=$n['id']?></a>
 				Title: <?=$n['title']?>
 				Message:  <?=$n['text']?>
 				Hidden:   <?=$n['hidden']?>
 				</li>
-			<? endforeach ?>
+			<?php endforeach ?>
 		</ul>
 		<form method="POST" >
 			<input name="title" placename="Title"/>
