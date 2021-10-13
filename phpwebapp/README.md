@@ -25,4 +25,3 @@ $ make clean
 
 ## Options
 - The path of the embbedded sqlite database can be modified in php files 
-- Database must be initialized in url <http://localhost:8080/initdb.php>
