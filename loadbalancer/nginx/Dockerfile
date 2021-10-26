@@ -1,5 +1,5 @@
 FROM nginx 
-MAINTAINER jrbalsas@ujaen.es
+LABEL MAINTAINER=jrbalsas@ujaen.es
 
 COPY nginx.conf /etc/nginx/nginx.conf
 

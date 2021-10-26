@@ -1,6 +1,6 @@
 # Simple deployement with load balancer
 
-This docker-compose deployment launches a load balancer for allowing access to a backend web app. By default is used **Haproxy** but can be selected **Nginx** or **Traefik** just uncommenting/commenting entries in `docker-compose.yml` file
+This docker-compose deployment launches a load balancer for allowing access to a backend web app. By default is used **Haproxy** but can be selected **Nginx** or **Traefik v.2** just uncommenting/commenting entries in `docker-compose.yml` file
 
 ## Requeriments
 

@@ -13,7 +13,7 @@ RUN mvn package -DskipTests
 
 # Create container using war package created in temporary package
 FROM tomcat:9.0-slim
-MAINTAINER jrbalsas@ujaen.es
+LABEL MAINTAINER=jrbalsas@ujaen.es
 
 WORKDIR /usr/local/tomcat/webapps
 

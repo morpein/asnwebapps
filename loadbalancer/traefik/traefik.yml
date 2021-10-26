@@ -1,0 +1,14 @@
+# Traefik config file (yaml version)
+# Enable api console http://localhost:8080
+api:
+  insecure: true
+  dashboard: true
+  debug: true
+log:
+  level: DEBUG 
+providers:
+  file: #back-end servers configuration
+    filename: /etc/traefik/dynamic-conf.yml
+entrypoints:
+ http:
+   address: ":80"

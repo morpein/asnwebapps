@@ -1,0 +1,12 @@
+http:
+  routers:
+    front-end:
+      rule: "PathPrefix(`/`)"
+      service: wwwservers 
+  services:
+    wwwservers:
+      loadBalancer:
+        servers:
+        - url: http://loadbalancer_wwwserver_1/
+        - url: http://loadbalancer_wwwserver_2/
+        healthCheck:

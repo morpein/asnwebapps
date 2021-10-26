@@ -1,6 +1,5 @@
 FROM node:latest
-MAINTAINER jrbalsas@ujaen.es
-
+LABEL MAINTAINER=jrbalsas@ujaen.es
 WORKDIR /app
 
 COPY src/package*.json ./
