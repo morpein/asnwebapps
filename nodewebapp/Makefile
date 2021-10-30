@@ -12,6 +12,5 @@ clean: cleandependencies
 	-docker rmi $(IMAGE)
 	@echo Imagen $(IMAGE) borrada
 cleandependencies:
-	-rm $(LOCALPATH)/notes.sqlite
 	-rm -fr $(LOCALPATH)/node_modules
 
