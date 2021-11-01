@@ -1,0 +1,10 @@
+version: "2.4"
+services:
+     waf:
+          build: .
+          image: asn/modsecurity:v1
+          environment:
+               PORT: 80
+          ports:
+               - "80:80"
+          
