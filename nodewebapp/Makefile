@@ -1,4 +1,4 @@
-IMAGE=asn/nodewebapp
+IMAGE=asn/nodewebapp:v1
 LOCALPATH=src
 
 dev: build 
@@ -13,4 +13,7 @@ clean: cleandependencies
 	@echo Imagen $(IMAGE) borrada
 cleandependencies:
 	-rm -fr $(LOCALPATH)/node_modules
+mon: monitor
+monitor:
+	docker stats
 

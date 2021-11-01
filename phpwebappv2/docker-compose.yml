@@ -1,8 +1,8 @@
-version: '2'
+version: '2.4'
 services:
   wwwserver:
     build: .
-    image: asn/phpwebapp
+    image: asn/phpwebapp:v1
     ports:
       # Fixed external port for HTTP direct access 
       - "8080:80"

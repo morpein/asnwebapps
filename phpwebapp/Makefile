@@ -1,5 +1,4 @@
-IMAGE=asn/phpwebapp
-LOCALPATH=html
+IMAGE=asn/phpwebapp:v1
 
 dev: build 
 	docker-compose up -d
@@ -12,5 +11,7 @@ clean: cleandependencies
 	-docker rmi $(IMAGE)
 	@echo Imagen $(IMAGE) borrada
 cleandependencies:
-	-rm $(LOCALPATH)/notes.sqlite
-
+	-
+mon: monitor
+monitor:
+	docker stats

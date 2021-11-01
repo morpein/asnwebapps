@@ -2,7 +2,7 @@ version: '2.4'
 services:
     wwwserver:
        build: .
-       image: asn/nodewebapp 
+       image: asn/nodewebapp:v1 
        environment:
             PORT: 3000 
        ports:
