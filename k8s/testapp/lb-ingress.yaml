@@ -1,38 +1,37 @@
-# IMPORTANT: in GKE, ingress resouce must be created AFTER service is launched
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lb-ingress
   annotations:
-##  Uncomment only for NGINX ingress controller. Comment for others controllers, e.g. haproxy...
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
+## Uncomment selected ingress controller
+#    kubernetes.io/ingress.class: "nginx"
+#    kubernetes.io/ingress.class: "haproxy"
+#    kubernetes.io/ingress.class: "gce"  #default in GKE
 spec:
   #Default backend service
-  # defaultBackend:
-  #   service:
-  #     name: testapp
-  #     port:
-  #       number: 80
+  defaultBackend:
+    service:
+      name: testapp
+      port:
+        number: 80
 
-  ## Backend services
-  rules:
-# - host: localhost 
-    - http:
-        paths:
-#       - path: /*    #Uncomment for GKE ingress special syntax
-        - path: /     #Comment when deploying in GKE
-          pathType: Prefix
-          backend:
-            service:
-              name: testapp 
-              port:
-                number: 80
-        # - path: /app/
-        #   pathType: Prefix
-        #   backend:
-        #     service:
-        #       name: wwwserver 
-        #       port:
-        #         number: 80
+#  ## Backend services
+#  rules:
+## - host: localhost 
+#    - http:
+#        paths:
+#        - path: /     
+#          pathType: Prefix
+#          backend:
+#            service:
+#              name: testapp 
+#              port:
+#                number: 80
+#        # - path: /app/
+#        #   pathType: Prefix
+#        #   backend:
+#        #     service:
+#        #       name: wwwserver 
+#        #       port:
+#        #         number: 80
 

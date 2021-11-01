@@ -25,9 +25,9 @@ spec:
         # Adjust resources for deploying on GKE g1-instance
         resources:
           limits:
-            cpu: 50m
+            cpu: "50m"
           requests:
-            cpu: 20m
+            cpu: "20m"
 ---
 # APP SERVICE
 apiVersion: v1
