@@ -1,3 +1,5 @@
 Source https://github.com/haproxytech/kubernetes-ingress/blob/master/deploy/haproxy-ingress.yaml
 
-For deploy in DKE the original service type has been changed to LoadBalancer for exposing port 80 on localhost
+## Changes
+* For deploy in DKE the original service type has been changed to LoadBalancer for exposing port 80 on localhost
+* Added IngressClass support for selecting Ingress-Controllers from ingress resources
