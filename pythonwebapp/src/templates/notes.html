@@ -1,0 +1,26 @@
+<html>
+	<head> </head>
+	<body>
+		<h1>My Notes</h1>
+		<ul>
+			{% for n in notes %}
+				<li>
+				Id: <a href='/note/{{n.id}}'>{{n.id|safe}}</a>
+				Title: {{n.title|safe}}
+				Message:  {{n.text|safe}}
+				Hidden:   {{n.hidden|safe}}
+				</li>
+			{% endfor %}
+		</ul>
+		<form method="POST" action="/note" >
+			<input name="title" placename="Title"/>
+			<input name="text" placename="Text"/> 
+			<input type="checkbox" name="hidden" value="1">
+			<input type="submit" name="Send"/>
+		</form>
+	<hr>
+	<em>Server: {{ request.host }} </em>
+	<em>Worker: {{ hostname }} </em>
+
+	</body>
+</html>

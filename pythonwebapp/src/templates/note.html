@@ -1,0 +1,14 @@
+<html>
+	<head> </head>
+	<body>
+		<h1>Note detail</h1>
+			<p>Id: {{note.id|safe}}</p>
+			<p>Title: {{note.title|safe}}</p>
+			<p>Message:  {{note.text|safe}}</p>
+			<p>Hidden:   {{note.hidden|safe}}</p>
+	<hr>
+	<em>Server: {{ request.host }} </em>
+	<em>Worker: {{ hostname }} </em>
+
+	</body>
+</html>
