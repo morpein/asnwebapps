@@ -9,6 +9,6 @@ log:
 providers:
   file: #back-end servers configuration
     filename: /etc/traefik/dynamic-conf.yml
-entrypoints:
+entryPoints:
  http:
    address: ":80"

@@ -30,7 +30,7 @@ $ make build
 ```bash
 $ make clean
 ```
-
+All balancers have enabled their monitoring interfaz accesible via web. Check their config file for accesing details, e.g. ``http://localhost/stats`` for haproxy or nginx
 
 ## Options
 - Each load balancer can be configured on its own config file (see load balancer folder). After editing config file, the loadbalancer must be restarted to get the new configuration, e.g. 
