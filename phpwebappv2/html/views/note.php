@@ -9,7 +9,7 @@
 			<p>Hidden:   <?=$note['hidden']?></p>
 	<hr>
 	<em>Server: <?=$_SERVER['SERVER_ADDR'] ?> </em>
-	<em>Worker: <?=gethostname() ?> </em>
+	<em>Container: <?=gethostname() ?> </em>
 
 	</body>
 </html>

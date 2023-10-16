@@ -6,10 +6,14 @@ services:
     ports:
       # Fixed external port for HTTP direct access 
       - "8080:80"
-    mem_limit: 50m
-    mem_reservation: 25m
     volumes:
       - ./html:/var/www/html
+    # limit resources for testing
+    cpus: 1
+    mem_limit: 128m
+    mem_reservation: 64m
+    oom_kill_disable: true #prevent stop containers when they reach their memory limit
+
     depends_on:
       - mariadb 
   mariadb:
