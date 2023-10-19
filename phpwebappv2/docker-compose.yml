@@ -9,10 +9,8 @@ services:
     volumes:
       - ./html:/var/www/html
     # limit resources for testing
-    cpus: 1
-    mem_limit: 128m
-    mem_reservation: 64m
-    oom_kill_disable: true #prevent stop containers when they reach their memory limit
+    cpus: .25
+    mem_limit: 25m
 
     depends_on:
       - mariadb 
