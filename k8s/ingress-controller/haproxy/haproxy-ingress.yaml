@@ -90,6 +90,15 @@ rules:
   - get
   - list
   - watch
+- apiGroups:
+  - "apiextensions.k8s.io"
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+  - update
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -146,9 +155,10 @@ spec:
             add:
               - NET_BIND_SERVICE
         resources:
+          limits:
+            memory: 2560Mi
           requests:
-            cpu: "500m"
-            memory: "50Mi"
+            memory: 2048Mi
         livenessProbe:
           httpGet:
             path: /healthz
