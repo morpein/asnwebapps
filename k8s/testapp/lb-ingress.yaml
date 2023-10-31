@@ -6,6 +6,7 @@ spec:
 ## Uncomment selected ingress controller
 #  ingressClassName: nginx
 #  ingressClassName: haproxy
+#  ingressClassName: traefik
 #  ingressClassName: gce #default in GKE
 
   #Default backend service
