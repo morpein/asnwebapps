@@ -15,6 +15,6 @@ $ make
 * Option 2
 
 ````
-$ docker-compose up -d
-$ docker-compose ps
+$ docker compose up -d
+$ docker compose ps
 ````

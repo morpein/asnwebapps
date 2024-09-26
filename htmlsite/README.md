@@ -5,7 +5,7 @@
 Docker, make
 
 ## Usage
-You can control the local container with ```docker-compose``` commands, i.e. up, stop, start, down, etc. however, if available, the ```make``` utility can be used to simplify the usual operations.
+You can control the local container with ```docker compose``` commands, i.e. up, stop, start, down, etc. however, if available, the ```make``` utility can be used to simplify the usual operations.
 
 - Build and launch container
 
