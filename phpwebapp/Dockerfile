@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8-apache
 LABEL maintainer="jrbalsas@ujaen.es"
 
 # Use PORT environment variable in Apache configuration files.

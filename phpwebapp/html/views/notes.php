@@ -20,6 +20,7 @@
 		</form>
 	<hr>
 	<em>Server: <?=$_SERVER['SERVER_ADDR'] ?> </em>
+	<em>Port: <?=$_ENV['PORT'] ?> </em>
 	<em>Container: <?=gethostname() ?> </em>
 
 	</body>
