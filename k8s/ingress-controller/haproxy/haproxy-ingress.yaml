@@ -83,6 +83,15 @@ rules:
   - watch
   - update
 - apiGroups:
+  - ingress.v1.haproxy.org
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+- apiGroups:
   - "discovery.k8s.io"
   resources:
   - endpointslices
@@ -99,6 +108,15 @@ rules:
   - list
   - watch
   - update
+- apiGroups:
+  - "apps"
+  resources:
+  - replicasets
+  - deployments
+  - daemonsets
+  verbs:
+  - get
+  - list
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -121,6 +139,7 @@ metadata:
   name: haproxy-kubernetes-ingress
   namespace: haproxy-controller
 data:
+  ssl-redirect-port: "443"
 
 ---
 apiVersion: apps/v1
@@ -147,6 +166,8 @@ spec:
         args:
           - --configmap=haproxy-controller/haproxy-kubernetes-ingress
         securityContext:
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
           runAsUser:  1000
           runAsGroup: 1000
           capabilities:
@@ -154,6 +175,8 @@ spec:
               - ALL
             add:
               - NET_BIND_SERVICE
+          seccompProfile:
+            type: RuntimeDefault
         resources:
           limits:
             memory: 2560Mi
@@ -165,9 +188,9 @@ spec:
             port: 1042
         ports:
         - name: http
-          containerPort: 80
+          containerPort: 8080
         - name: https
-          containerPort: 443
+          containerPort: 8443
         - name: stat
           containerPort: 1024
         env:
@@ -203,11 +226,11 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   - name: https
     port: 443
     protocol: TCP
-    targetPort: 443
+    targetPort: 8443
     #Access to Stats console
   - name: stat
     port: 1024
