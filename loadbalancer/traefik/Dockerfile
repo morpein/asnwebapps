@@ -1,4 +1,4 @@
-FROM traefik:2.10
+FROM traefik:3.1
 LABEL MAINTAINER=jrbalsas@ujaen.es
 
 COPY *.yml /etc/traefik/ 

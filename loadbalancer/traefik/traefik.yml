@@ -5,7 +5,8 @@ api:
   dashboard: true
   debug: true
 log:
-  level: DEBUG 
+  level: INFO # DEBUG 
+accessLog: {} # Show http requests
 providers:
   file: #back-end servers configuration
     filename: /etc/traefik/dynamic-conf.yml
